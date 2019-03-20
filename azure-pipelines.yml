@@ -17,5 +17,5 @@ steps:
   displayName: Container registry login
   inputs:
     command: login
-    azureSubscriptionEndpoint: demo123
+    azureSubscriptionEndpoint: testDemo
     azureContainerRegistry: testopen.azurecr.io
