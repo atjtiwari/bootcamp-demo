@@ -19,16 +19,5 @@ steps:
     command: login
     azureSubscriptionEndpoint: Demo123
     azureContainerRegistry: testopen.azurecr.io
-- task: Docker@1
-  displayName: Build image
-  inputs:
-    command: build
-    dockerFile: app/Dockerfile
-    imageName: $(imageName)
-- task: Docker@1
-  displayName: Push image
-  inputs:
-    command: push
-    imageName: $(imageName)
-    azureSubscriptionEndpoint: Demo123
-    dockerRegistryEndpoint: testopen.azurecr.io
+- script: docker build -t testopen.azurecr.io/$(imageName) ./app
+- script: docker push testopen.azurecr.io/$(imageName)
