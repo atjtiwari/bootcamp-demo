@@ -13,4 +13,9 @@ variables:
   imageName: 'shashankbarsin/bootcamp-demo:$(build.buildId)'
 
 steps:
-- script: docker build -t developer-camp:dev ./app
+- task: Docker@1
+  displayName: Container registry login
+  inputs:
+    command: login
+    azureSubscriptionEndpoint: demo123
+    azureContainerRegistry: $(testopen.azurecr.io)
